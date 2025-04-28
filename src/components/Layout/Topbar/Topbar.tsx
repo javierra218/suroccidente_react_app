@@ -1,7 +1,6 @@
 import React from 'react';
 import { Layout, Button, Space, Avatar, Badge, Dropdown, Menu } from 'antd';
 import {
-  MenuOutlined,
   UserOutlined,
   BellOutlined,
   SettingOutlined,
@@ -31,7 +30,7 @@ const Topbar: React.FC = () => {
   return (
     <Header className="topbar">
       <div className="topbar-left">
-        <Button type="text" icon={<MenuOutlined />} className="menu-button" />
+        
         <h1 className="topbar-title">Suroccidente App</h1>
       </div>
 
