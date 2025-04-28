@@ -3,7 +3,7 @@ import tableData from '../assets/data/tableData.json';
 export interface TableData {
   id: number;
   name: string;
-  type: 'A' | 'B' | 'C' | 'D';
+  type: string;
   value: number;
   status: string;
   isEditable: boolean;
@@ -30,13 +30,8 @@ export const fetchTableData = async (): Promise<TableResponse> => {
   // Simulando una llamada a la API con el archivo JSON
   return new Promise(resolve => {
     setTimeout(() => {
-      // Aseguramos que los tipos sean correctos
-      const typedData: TableData[] = tableData.data.map(item => ({
-        ...item,
-        type: item.type as 'A' | 'B' | 'C' | 'D'
-      }));
       resolve({
-        data: typedData,
+        data: tableData.data,
         options: tableData.options
       });
     }, 1000);

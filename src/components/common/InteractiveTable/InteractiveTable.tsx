@@ -1,6 +1,6 @@
-import { Checkbox, Input, Select, Space, Table } from 'antd';
 import React, { useEffect, useState } from 'react';
-import type { Option, TableData } from '../../../services/tableService';
+import { Table, Select, Input, Checkbox, Space } from 'antd';
+import type { TableData, Option } from '../../../services/tableService';
 import { fetchTableData } from '../../../services/tableService';
 import './InteractiveTable.css';
 
@@ -28,7 +28,7 @@ const InteractiveTable: React.FC = () => {
     loadData();
   }, []);
 
-  const handleTypeChange = (value: 'A' | 'B' | 'C' | 'D', record: TableData) => {
+  const handleTypeChange = (value: string, record: TableData) => {
     const newData = data.map(item => {
       if (item.id === record.id) {
         return { ...item, type: value };
@@ -60,11 +60,7 @@ const InteractiveTable: React.FC = () => {
       key: 'type',
       render: (text: string, record: TableData) =>
         record.isEditable ? (
-          <Select
-            value={text}
-            onChange={value => handleTypeChange(value as 'A' | 'B' | 'C' | 'D', record)}
-            style={{ width: 120 }}
-          >
+          <Select value={text} onChange={value => handleTypeChange(value, record)} style={{ width: 120 }}>
             {options.types.map(option => (
               <SelectOption key={option.value} value={option.value}>
                 {option.label}
