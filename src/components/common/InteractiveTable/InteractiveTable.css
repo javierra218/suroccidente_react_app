@@ -31,3 +31,39 @@
 .interactive-table .ant-space {
   width: 100%;
 }
+
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.table-controls .ant-checkbox-wrapper {
+  margin-right: 16px;
+}
+
+.table-controls .ant-input-affix-wrapper {
+  width: 300px;
+}
+
+.table-controls .ant-input-affix-wrapper:hover,
+.table-controls .ant-input-affix-wrapper:focus {
+  border-color: #488704;
+}
+
+.table-controls .anticon-search {
+  color: #488704;
+}
+
+@media (max-width: 768px) {
+  .table-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .table-controls .ant-input-affix-wrapper {
+    width: 100%;
+    margin-top: 16px;
+  }
+}

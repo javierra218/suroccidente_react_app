@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Select, Input, Checkbox, Space } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 import type { TableData, Option } from '../../../services/tableService';
 import { fetchTableData } from '../../../services/tableService';
 import './InteractiveTable.css';
@@ -11,6 +12,7 @@ const InteractiveTable: React.FC = () => {
   const [options, setOptions] = useState<{ types: Option[]; statuses: Option[] }>({ types: [], statuses: [] });
   const [loading, setLoading] = useState(true);
   const [showMore, setShowMore] = useState(false);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     const loadData = async () => {
@@ -47,6 +49,17 @@ const InteractiveTable: React.FC = () => {
     });
     setData(newData);
   };
+
+  const handleSearch = (value: string) => {
+    setSearchText(value);
+  };
+
+  const filteredData = data.filter(item => {
+    const matchesSearch =
+      searchText === '' ||
+      Object.values(item).some(val => String(val).toLowerCase().includes(searchText.toLowerCase()));
+    return (item.isVisible || showMore) && matchesSearch;
+  });
 
   const columns = [
     {
@@ -94,14 +107,21 @@ const InteractiveTable: React.FC = () => {
     }
   ];
 
-  const filteredData = data.filter(item => item.isVisible || showMore);
-
   return (
     <div className="interactive-table">
       <Space direction="vertical" style={{ width: '100%' }}>
-        <Checkbox checked={showMore} onChange={e => setShowMore(e.target.checked)}>
-          Ver más filas
-        </Checkbox>
+        <div className="table-controls">
+          <Checkbox checked={showMore} onChange={e => setShowMore(e.target.checked)}>
+            Ver más filas
+          </Checkbox>
+          <Input
+            placeholder="Buscar en la tabla..."
+            prefix={<SearchOutlined />}
+            onChange={e => handleSearch(e.target.value)}
+            style={{ width: 300 }}
+            allowClear
+          />
+        </div>
         <Table columns={columns} dataSource={filteredData} rowKey="id" loading={loading} pagination={false} />
       </Space>
     </div>
