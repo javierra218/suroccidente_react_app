@@ -1,0 +1,96 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Fila Completamente Editable",
+            "type": "A",
+            "value": 100,
+            "status": "Activo",
+            "isEditable": true,
+            "isNumeric": false,
+            "isVisible": true
+        },
+        {
+            "id": 2,
+            "name": "Fila Parcialmente Editable",
+            "type": "B",
+            "value": 200,
+            "status": "Inactivo",
+            "isEditable": true,
+            "isNumeric": false,
+            "isVisible": false
+        },
+        {
+            "id": 3,
+            "name": "Fila Numérica",
+            "type": "C",
+            "value": 300,
+            "status": "Pendiente",
+            "isEditable": true,
+            "isNumeric": true,
+            "isVisible": false
+        },
+        {
+            "id": 4,
+            "name": "Fila de Solo Lectura",
+            "type": "D",
+            "value": 400,
+            "status": "Completado",
+            "isEditable": false,
+            "isNumeric": false,
+            "isVisible": true
+        },
+        {
+            "id": 5,
+            "name": "Fila Numérica Parcial",
+            "type": "A",
+            "value": 500,
+            "status": "En Proceso",
+            "isEditable": true,
+            "isNumeric": true,
+            "isVisible": false
+        }
+    ],
+    "options": {
+        "types": [
+            {
+                "value": "A",
+                "label": "Tipo A"
+            },
+            {
+                "value": "B",
+                "label": "Tipo B"
+            },
+            {
+                "value": "C",
+                "label": "Tipo C"
+            },
+            {
+                "value": "D",
+                "label": "Tipo D"
+            }
+        ],
+        "statuses": [
+            {
+                "value": "Activo",
+                "label": "Activo"
+            },
+            {
+                "value": "Inactivo",
+                "label": "Inactivo"
+            },
+            {
+                "value": "Pendiente",
+                "label": "Pendiente"
+            },
+            {
+                "value": "Completado",
+                "label": "Completado"
+            },
+            {
+                "value": "En Proceso",
+                "label": "En Proceso"
+            }
+        ]
+    }
+}
