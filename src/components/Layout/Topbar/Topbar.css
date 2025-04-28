@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 64px;
 }
 
 .topbar-left {
@@ -20,12 +21,50 @@
   color: #fff;
 }
 
-.topbar button {
+.topbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.menu-button,
+.notification-button {
+  color: #fff;
+  font-size: 18px;
+  padding: 8px;
+  height: 40px;
+  width: 40px;
+}
+
+.menu-button:hover,
+.notification-button:hover {
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.user-dropdown {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.user-dropdown:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.username {
+  color: #fff;
+  margin: 0 8px;
+}
+
+.ant-avatar {
+  background: rgba(255, 255, 255, 0.2);
   color: #fff;
 }
 
-.topbar button:hover {
-  color: rgba(255, 255, 255, 0.8);
+.ant-badge-count {
+  background: #ff4d4f;
+  box-shadow: 0 0 0 1px #488704;
 }
 
 @media (max-width: 768px) {
@@ -35,5 +74,9 @@
 
   .topbar-title {
     font-size: 18px;
+  }
+
+  .username {
+    display: none;
   }
 }

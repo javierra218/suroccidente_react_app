@@ -1,21 +1,52 @@
 import React from 'react';
-import { Layout, Button, Space } from 'antd';
-import { MenuOutlined, UserOutlined, BellOutlined } from '@ant-design/icons';
+import { Layout, Button, Space, Avatar, Badge, Dropdown, Menu } from 'antd';
+import {
+  MenuOutlined,
+  UserOutlined,
+  BellOutlined,
+  SettingOutlined,
+  LogoutOutlined,
+  DownOutlined
+} from '@ant-design/icons';
 import './Topbar.css';
 
 const { Header } = Layout;
 
 const Topbar: React.FC = () => {
+  const userMenu = (
+    <Menu>
+      <Menu.Item key="profile" icon={<UserOutlined />}>
+        Mi Perfil
+      </Menu.Item>
+      <Menu.Item key="settings" icon={<SettingOutlined />}>
+        Configuración
+      </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item key="logout" icon={<LogoutOutlined />}>
+        Cerrar Sesión
+      </Menu.Item>
+    </Menu>
+  );
+
   return (
     <Header className="topbar">
       <div className="topbar-left">
-        <Button type="text" icon={<MenuOutlined />} />
+        <Button type="text" icon={<MenuOutlined />} className="menu-button" />
         <h1 className="topbar-title">Suroccidente App</h1>
       </div>
 
-      <Space size="middle">
-        <Button type="text" icon={<BellOutlined />} />
-        <Button type="text" icon={<UserOutlined />} />
+      <Space size="large" className="topbar-right">
+        <Badge count={5} size="small">
+          <Button type="text" icon={<BellOutlined />} className="notification-button" />
+        </Badge>
+
+        <Dropdown overlay={userMenu} trigger={['click']}>
+          <Space className="user-dropdown">
+            <Avatar icon={<UserOutlined />} />
+            <span className="username">Usuario</span>
+            <DownOutlined />
+          </Space>
+        </Dropdown>
       </Space>
     </Header>
   );
