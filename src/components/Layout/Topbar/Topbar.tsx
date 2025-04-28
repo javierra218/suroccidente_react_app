@@ -9,7 +9,7 @@ const Topbar: React.FC = () => {
   return (
     <Header className="topbar">
       <div className="topbar-left">
-        {/* <Button type="text" icon={<MenuOutlined />} /> */}
+        <Button type="text" icon={<MenuOutlined />} />
         <h1 className="topbar-title">Suroccidente App</h1>
       </div>
 

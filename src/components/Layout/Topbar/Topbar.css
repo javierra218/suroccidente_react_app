@@ -1,10 +1,10 @@
 .topbar {
-  background: #fff;
+  background: #488704;
   padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .topbar-left {
@@ -17,6 +17,15 @@
   margin-left: 16px;
   font-size: 20px;
   font-weight: 500;
+  color: #fff;
+}
+
+.topbar button {
+  color: #fff;
+}
+
+.topbar button:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 @media (max-width: 768px) {
