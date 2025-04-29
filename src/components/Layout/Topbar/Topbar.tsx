@@ -8,6 +8,7 @@ import {
   LogoutOutlined,
   DownOutlined
 } from '@ant-design/icons';
+import logo from '../../../assets/images/logo.svg';
 import './Topbar.css';
 
 const { Header } = Layout;
@@ -48,7 +49,7 @@ const Topbar: React.FC = () => {
   return (
     <Header className="topbar">
       <div className="topbar-left">
-        
+        <img src={logo} alt="Logo Suroccidente" className="logo" />
         <h1 className="topbar-title">Suroccidente App</h1>
       </div>
 
