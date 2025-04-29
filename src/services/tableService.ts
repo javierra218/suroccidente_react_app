@@ -9,6 +9,7 @@ export interface TableData {
   isEditable: boolean;
   isNumeric: boolean;
   isVisible: boolean;
+  editableColumns?: string[];
 }
 
 export interface Option {

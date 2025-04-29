@@ -2,94 +2,61 @@
     "data": [
         {
             "id": 1,
-            "name": "Fila Completamente Editable",
             "type": "A",
-            "value": 100,
-            "status": "Activo",
+            "value": "A",
+            "status": "A",
             "isEditable": true,
             "isNumeric": false,
-            "isVisible": true
+            "isVisible": true,
+            "editableColumns": [
+                "type",
+                "value",
+                "status"
+            ]
         },
         {
             "id": 2,
-            "name": "Fila Parcialmente Editable",
-            "type": "B",
-            "value": 200,
-            "status": "Inactivo",
+            "type": "A",
+            "value": "B",
+            "status": "A",
             "isEditable": true,
             "isNumeric": false,
-            "isVisible": false
+            "isVisible": false,
+            "editableColumns": [
+                "type",
+                "status"
+            ]
         },
         {
             "id": 3,
-            "name": "Fila Numérica",
-            "type": "C",
-            "value": 300,
-            "status": "Pendiente",
+            "type": "100",
+            "value": "200",
+            "status": "300",
             "isEditable": true,
             "isNumeric": true,
-            "isVisible": false
-        },
-        {
-            "id": 4,
-            "name": "Fila de Solo Lectura",
-            "type": "D",
-            "value": 400,
-            "status": "Completado",
-            "isEditable": false,
-            "isNumeric": false,
-            "isVisible": true
-        },
-        {
-            "id": 5,
-            "name": "Fila Numérica Parcial",
-            "type": "A",
-            "value": 500,
-            "status": "En Proceso",
-            "isEditable": true,
-            "isNumeric": true,
-            "isVisible": false
+            "isVisible": false,
+            "editableColumns": [
+                "value"
+            ]
         }
     ],
     "options": {
         "types": [
             {
                 "value": "A",
-                "label": "Tipo A"
+                "label": "A"
             },
             {
                 "value": "B",
-                "label": "Tipo B"
+                "label": "B"
             },
             {
                 "value": "C",
-                "label": "Tipo C"
+                "label": "C"
             },
             {
                 "value": "D",
-                "label": "Tipo D"
-            }
-        ],
-        "statuses": [
-            {
-                "value": "Activo",
-                "label": "Activo"
-            },
-            {
-                "value": "Inactivo",
-                "label": "Inactivo"
-            },
-            {
-                "value": "Pendiente",
-                "label": "Pendiente"
-            },
-            {
-                "value": "Completado",
-                "label": "Completado"
-            },
-            {
-                "value": "En Proceso",
-                "label": "En Proceso"
+                "label": "D"
             }
         ]
     }

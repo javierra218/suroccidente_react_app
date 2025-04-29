@@ -8,60 +8,143 @@ import './InteractiveTable.css';
 const { Option: SelectOption } = Select;
 
 const InteractiveTable: React.FC = () => {
-  const { data, options, loading, showMore, setShowMore, handleTypeChange, handleValueChange, handleSearch } =
-    useTableData();
+  const {
+    data,
+    options,
+    loading,
+    showMore,
+    setShowMore,
+    handleTypeChange,
+    handleValueChange,
+    handleStatusChange,
+    handleSearch
+  } = useTableData();
 
   const columns = [
     {
-      title: 'Nombre',
-      dataIndex: 'name',
-      key: 'name'
-    },
-    {
-      title: 'Tipo',
+      title: 'Columna 1',
       dataIndex: 'type',
       key: 'type',
-      render: (text: string, record: TableData) =>
-        record.isEditable ? (
-          <Select value={text} onChange={value => handleTypeChange(value, record)} style={{ width: 120 }}>
+      render: (text: string, record: TableData) => {
+        if (record.isNumeric) {
+          return record.editableColumns?.includes('type') ? (
+            <Input
+              type="number"
+              value={text}
+              onChange={e => handleTypeChange(e.target.value, record)}
+              style={{ width: '100%' }}
+            />
+          ) : (
+            <Input type="number" value={text} disabled style={{ width: '100%' }} />
+          );
+        }
+
+        return record.editableColumns?.includes('type') ? (
+          <Select
+            value={text || undefined}
+            onChange={value => handleTypeChange(value, record)}
+            style={{ width: '100%' }}
+            placeholder="Selecciona un valor"
+          >
             {options.types.map(option => (
               <SelectOption key={option.value} value={option.value}>
-                {option.label}
+                {option.value}
               </SelectOption>
             ))}
           </Select>
         ) : (
-          text
-        )
+          <Select value={text || undefined} disabled style={{ width: '100%' }}>
+            <SelectOption value={text}>{text}</SelectOption>
+          </Select>
+        );
+      }
     },
     {
-      title: 'Valor',
+      title: 'Columna 2',
       dataIndex: 'value',
       key: 'value',
-      render: (text: number, record: TableData) =>
-        record.isNumeric ? (
-          <Input
-            type="number"
-            value={text}
-            onChange={e => handleValueChange(Number(e.target.value), record)}
-            style={{ width: 120 }}
-          />
+      render: (text: string | number, record: TableData) => {
+        if (record.isNumeric) {
+          return record.editableColumns?.includes('value') ? (
+            <Input
+              type="number"
+              value={text}
+              onChange={e => handleValueChange(Number(e.target.value), record)}
+              style={{ width: '100%' }}
+            />
+          ) : (
+            <Input type="number" value={text} disabled style={{ width: '100%' }} />
+          );
+        }
+
+        return record.editableColumns?.includes('value') ? (
+          <Select
+            value={text || undefined}
+            onChange={value => handleValueChange(Number(value), record)}
+            style={{ width: '100%' }}
+            placeholder="Selecciona un valor"
+          >
+            {options.types.map(option => (
+              <SelectOption key={option.value} value={option.value}>
+                {option.value}
+              </SelectOption>
+            ))}
+          </Select>
         ) : (
-          text
-        )
+          <Select value={text || undefined} disabled style={{ width: '100%' }}>
+            <SelectOption value={text}>{text}</SelectOption>
+          </Select>
+        );
+      }
     },
     {
-      title: 'Estado',
+      title: 'Columna 3',
       dataIndex: 'status',
-      key: 'status'
+      key: 'status',
+      render: (text: string, record: TableData) => {
+        if (record.isNumeric) {
+          return record.editableColumns?.includes('status') ? (
+            <Input
+              type="number"
+              value={text}
+              onChange={e => handleStatusChange(e.target.value, record)}
+              style={{ width: '100%' }}
+            />
+          ) : (
+            <Input type="number" value={text} disabled style={{ width: '100%' }} />
+          );
+        }
+
+        return record.editableColumns?.includes('status') ? (
+          <Select
+            value={text || undefined}
+            onChange={value => handleStatusChange(value, record)}
+            style={{ width: '100%' }}
+            placeholder="Selecciona un valor"
+          >
+            {options.types.map(option => (
+              <SelectOption key={option.value} value={option.value}>
+                {option.value}
+              </SelectOption>
+            ))}
+          </Select>
+        ) : (
+          <Select value={text || undefined} disabled style={{ width: '100%' }}>
+            <SelectOption value={text}>{text}</SelectOption>
+          </Select>
+        );
+      }
     }
   ];
+
+  // Filtramos las filas según el estado de showMore
+  const visibleData = data.filter(item => item.isVisible || showMore);
 
   return (
     <div className="interactive-table">
       <Space direction="vertical" style={{ width: '100%' }}>
         <TableControls showMore={showMore} onShowMoreChange={setShowMore} onSearch={handleSearch} />
-        <Table columns={columns} dataSource={data} rowKey="id" loading={loading} pagination={false} />
+        <Table columns={columns} dataSource={visibleData} rowKey="id" loading={loading} pagination={false} bordered />
       </Space>
     </div>
   );

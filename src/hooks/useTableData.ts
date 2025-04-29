@@ -50,6 +50,16 @@ export const useTableData = () => {
     setData(newData);
   };
 
+  const handleStatusChange = (value: string, record: TableData) => {
+    const newData = data.map(item => {
+      if (item.id === record.id) {
+        return { ...item, status: value };
+      }
+      return item;
+    });
+    setData(newData);
+  };
+
   const handleSearch = (value: string) => {
     setSearchText(value);
   };
@@ -70,6 +80,7 @@ export const useTableData = () => {
     searchText,
     handleTypeChange,
     handleValueChange,
+    handleStatusChange,
     handleSearch
   };
 };
