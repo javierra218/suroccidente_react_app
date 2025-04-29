@@ -24,7 +24,7 @@ const TableControls: React.FC<TableControlsProps> = ({
           Ver más filas
         </Checkbox>
         <Checkbox checked={useEpsData} onChange={e => onEpsDataChange(e.target.checked)}>
-          Mostrar datos de EPS
+          Mostrar datos Simulados
         </Checkbox>
       </Space>
       <Input

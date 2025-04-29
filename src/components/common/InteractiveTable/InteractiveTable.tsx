@@ -24,7 +24,7 @@ const InteractiveTable: React.FC = () => {
 
   const columns = [
     {
-      title: 'Tipo',
+      title: 'Columna 1',
       dataIndex: 'type',
       key: 'type',
       render: (text: string, record: TableData) => {
@@ -62,7 +62,7 @@ const InteractiveTable: React.FC = () => {
       }
     },
     {
-      title: 'Valor',
+      title: 'Columna 2',
       dataIndex: 'value',
       key: 'value',
       render: (text: string | number, record: TableData) => {
@@ -100,7 +100,7 @@ const InteractiveTable: React.FC = () => {
       }
     },
     {
-      title: 'Estado',
+      title: 'Columna 3',
       dataIndex: 'status',
       key: 'status',
       render: (text: string, record: TableData) => {

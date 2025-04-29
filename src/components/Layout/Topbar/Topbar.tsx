@@ -46,7 +46,7 @@ const Topbar: React.FC = () => {
         <Link to="/tabla_de_datos" className="logo-link">
           <img src={logo} alt="Logo Suroccidente" className="logo" />
         </Link>
-        <h1 className="topbar-title">Suroccidente App</h1>
+        <h1 className="topbar-title">E.S.E Suroccidente</h1>
       </div>
 
       <Space size="large" className="topbar-right">
