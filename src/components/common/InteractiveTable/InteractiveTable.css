@@ -1,5 +1,8 @@
 .interactive-table {
-  padding: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -7,37 +10,156 @@
 
 .interactive-table .ant-table {
   background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .interactive-table .ant-table-thead > tr > th {
   background: #f5f5f5;
-  color: #488704;
+  color: #333;
   font-weight: 600;
+  padding: 12px 16px;
+  border-bottom: 2px solid #e8e8e8;
 }
 
 .interactive-table .ant-table-tbody > tr > td {
-  padding: 16px 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e8e8e8;
+  transition: background-color 0.3s;
 }
 
-/* Estilos para campos deshabilitados */
-.interactive-table .ant-input-disabled,
+.interactive-table .ant-table-tbody > tr:hover > td {
+  background-color: #f5f5f5;
+}
+
+.interactive-table .ant-input,
+.interactive-table .ant-select {
+  width: 100%;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.interactive-table .ant-select-selector {
+  min-width: 200px !important;
+  max-width: 300px !important;
+}
+
+.interactive-table .ant-select-selection-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+}
+
+.interactive-table .ant-input-number {
+  width: 100%;
+  min-width: 200px;
+  max-width: 300px;
+}
+
 .interactive-table .ant-select-disabled .ant-select-selector {
-  background-color: #f5f5f5 !important;
-  color: #595959 !important;
-  border-color: #d9d9d9 !important;
-}
-
-.interactive-table .ant-select-disabled .ant-select-selection-item {
-  color: #595959 !important;
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  color: #595959;
 }
 
 .interactive-table .ant-select-disabled .ant-select-arrow {
-  color: #bfbfbf !important;
+  color: #d9d9d9;
 }
 
-.interactive-table .ant-select,
-.interactive-table .ant-input {
-  width: 100%;
+.interactive-table .ant-select-selection-placeholder {
+  color: #8c8c8c;
+}
+
+.interactive-table .ant-select-selection-item {
+  color: #333;
+}
+
+.interactive-table .ant-select-focused .ant-select-selector {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.interactive-table .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: #40a9ff;
+}
+
+.interactive-table .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: #e6f7ff;
+  color: #1890ff;
+}
+
+.interactive-table .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+  background-color: #f5f5f5;
+}
+
+.interactive-table .ant-select-dropdown {
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.interactive-table .ant-select-clear {
+  color: #8c8c8c;
+}
+
+.interactive-table .ant-select-clear:hover {
+  color: #595959;
+}
+
+.interactive-table .ant-input[disabled] {
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  color: #595959;
+}
+
+.interactive-table .ant-input-number-input[disabled] {
+  background-color: #f5f5f5;
+  color: #595959;
+}
+
+.interactive-table .ant-input-number-handler-wrap {
+  background: #f5f5f5;
+  border-left: 1px solid #d9d9d9;
+}
+
+.interactive-table .ant-input-number-handler-down {
+  border-top: 1px solid #d9d9d9;
+}
+
+.interactive-table .ant-input-number-handler:hover .ant-input-number-handler-up-inner,
+.interactive-table .ant-input-number-handler:hover .ant-input-number-handler-down-inner {
+  color: #40a9ff;
+}
+
+.interactive-table .ant-input-number-focused {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.interactive-table .ant-input-number:hover {
+  border-color: #40a9ff;
+}
+
+.interactive-table .ant-input-number-input {
+  color: #333;
+}
+
+.interactive-table .ant-input-number-input::placeholder {
+  color: #8c8c8c;
+}
+
+.interactive-table .ant-input-number-disabled {
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+}
+
+.interactive-table .ant-input-number-disabled .ant-input-number-input {
+  color: #595959;
+}
+
+.interactive-table .ant-input-number-disabled .ant-input-number-handler-wrap {
+  display: none;
 }
 
 .interactive-table .ant-checkbox-wrapper {

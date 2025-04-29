@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Table, Select, Input, Space } from 'antd';
 import type { TableData } from '../../../models/TableData';
 import { useTableData } from '../../../hooks/useTableData';
+import { useTableState } from '../../../hooks/useTableState';
+import { useFieldHandlers } from '../../../hooks/useFieldHandlers';
 import TableControls from './TableControls';
 import './InteractiveTable.css';
 
@@ -22,9 +24,22 @@ const InteractiveTable: React.FC = () => {
     handleToggleEpsData
   } = useTableData();
 
+  const { selectedValues, numericValues, clearValues, updateSelectedValue, updateNumericValue } = useTableState();
+
+  const { handleSelectChange, handleNumericChange } = useFieldHandlers(
+    data,
+    handleTypeChange,
+    handleValueChange,
+    handleStatusChange
+  );
+
+  useEffect(() => {
+    clearValues();
+  }, [useEpsData, clearValues]);
+
   const columns = [
     {
-      title: 'Columna 1',
+      title: 'Tipo',
       dataIndex: 'type',
       key: 'type',
       render: (text: string, record: TableData) => {
@@ -32,9 +47,13 @@ const InteractiveTable: React.FC = () => {
           return record.editableColumns?.includes('type') ? (
             <Input
               type="number"
-              value={text}
-              onChange={e => handleTypeChange(e.target.value, record)}
+              value={numericValues[`${record.id}-type`] || ''}
+              onChange={e => {
+                updateNumericValue(record.id, 'type', e.target.value);
+                handleNumericChange(record.id, 'type', e.target.value);
+              }}
               style={{ width: '100%' }}
+              placeholder="Ingrese un número"
             />
           ) : (
             <Input type="number" value={text} disabled style={{ width: '100%' }} />
@@ -43,10 +62,15 @@ const InteractiveTable: React.FC = () => {
 
         return record.editableColumns?.includes('type') ? (
           <Select
-            value={text || undefined}
-            onChange={value => handleTypeChange(value, record)}
+            value={selectedValues[`${record.id}-type`] || undefined}
+            onChange={value => {
+              updateSelectedValue(record.id, 'type', value);
+              handleSelectChange(record.id, 'type', value);
+            }}
             style={{ width: '100%' }}
-            placeholder="Selecciona un valor"
+            placeholder="Seleccione una opción de la lista"
+            allowClear
+            showSearch
           >
             {options.types.map(option => (
               <SelectOption key={option.value} value={option.value}>
@@ -55,14 +79,14 @@ const InteractiveTable: React.FC = () => {
             ))}
           </Select>
         ) : (
-          <Select value={text || undefined} disabled style={{ width: '100%' }}>
+          <Select value={text} disabled style={{ width: '100%' }}>
             <SelectOption value={text}>{text}</SelectOption>
           </Select>
         );
       }
     },
     {
-      title: 'Columna 2',
+      title: 'Valor',
       dataIndex: 'value',
       key: 'value',
       render: (text: string | number, record: TableData) => {
@@ -70,9 +94,13 @@ const InteractiveTable: React.FC = () => {
           return record.editableColumns?.includes('value') ? (
             <Input
               type="number"
-              value={text}
-              onChange={e => handleValueChange(Number(e.target.value), record)}
+              value={numericValues[`${record.id}-value`] || ''}
+              onChange={e => {
+                updateNumericValue(record.id, 'value', e.target.value);
+                handleNumericChange(record.id, 'value', e.target.value);
+              }}
               style={{ width: '100%' }}
+              placeholder="Ingrese un número"
             />
           ) : (
             <Input type="number" value={text} disabled style={{ width: '100%' }} />
@@ -81,10 +109,15 @@ const InteractiveTable: React.FC = () => {
 
         return record.editableColumns?.includes('value') ? (
           <Select
-            value={text?.toString() || undefined}
-            onChange={value => handleValueChange(value, record)}
+            value={selectedValues[`${record.id}-value`] || undefined}
+            onChange={value => {
+              updateSelectedValue(record.id, 'value', value);
+              handleSelectChange(record.id, 'value', value);
+            }}
             style={{ width: '100%' }}
-            placeholder="Selecciona un valor"
+            placeholder="Seleccione una opción de la lista"
+            allowClear
+            showSearch
           >
             {options.types.map(option => (
               <SelectOption key={option.value} value={option.value}>
@@ -93,14 +126,14 @@ const InteractiveTable: React.FC = () => {
             ))}
           </Select>
         ) : (
-          <Select value={text?.toString() || undefined} disabled style={{ width: '100%' }}>
+          <Select value={text?.toString()} disabled style={{ width: '100%' }}>
             <SelectOption value={text?.toString()}>{text?.toString()}</SelectOption>
           </Select>
         );
       }
     },
     {
-      title: 'Columna 3',
+      title: 'Estado',
       dataIndex: 'status',
       key: 'status',
       render: (text: string, record: TableData) => {
@@ -108,9 +141,13 @@ const InteractiveTable: React.FC = () => {
           return record.editableColumns?.includes('status') ? (
             <Input
               type="number"
-              value={text}
-              onChange={e => handleStatusChange(e.target.value, record)}
+              value={numericValues[`${record.id}-status`] || ''}
+              onChange={e => {
+                updateNumericValue(record.id, 'status', e.target.value);
+                handleNumericChange(record.id, 'status', e.target.value);
+              }}
               style={{ width: '100%' }}
+              placeholder="Ingrese un número"
             />
           ) : (
             <Input type="number" value={text} disabled style={{ width: '100%' }} />
@@ -119,10 +156,15 @@ const InteractiveTable: React.FC = () => {
 
         return record.editableColumns?.includes('status') ? (
           <Select
-            value={text || undefined}
-            onChange={value => handleStatusChange(value, record)}
+            value={selectedValues[`${record.id}-status`] || undefined}
+            onChange={value => {
+              updateSelectedValue(record.id, 'status', value);
+              handleSelectChange(record.id, 'status', value);
+            }}
             style={{ width: '100%' }}
-            placeholder="Selecciona un valor"
+            placeholder="Seleccione una opción de la lista"
+            allowClear
+            showSearch
           >
             {options.types.map(option => (
               <SelectOption key={option.value} value={option.value}>
@@ -131,7 +173,7 @@ const InteractiveTable: React.FC = () => {
             ))}
           </Select>
         ) : (
-          <Select value={text || undefined} disabled style={{ width: '100%' }}>
+          <Select value={text} disabled style={{ width: '100%' }}>
             <SelectOption value={text}>{text}</SelectOption>
           </Select>
         );

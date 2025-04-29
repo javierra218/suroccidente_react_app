@@ -1,127 +1,98 @@
-# Suroccidente App
+# Aplicación de Gestión de Datos
 
-Aplicación web desarrollada con React, TypeScript y Ant Design para la gestión de datos de la E.S.E Suroccidente.
+## Descripción
 
-## 🚀 Tecnologías Utilizadas
+Aplicación web desarrollada con React y TypeScript para la gestión y visualización de datos tabulares.
 
-- **React 18**: Biblioteca de JavaScript para construir interfaces de usuario
-- **TypeScript**: Superset de JavaScript que añade tipado estático
-- **Vite**: Herramienta de construcción y desarrollo rápido
-- **Ant Design**: Biblioteca de componentes UI
-- **ESLint**: Linter para mantener la calidad del código
-
-## 📦 Instalación
-
-1. Clonar el repositorio:
+## Instalación
 
 ```bash
-git clone [url-del-repositorio]
-cd suroccidente_app
-```
-
-2. Instalar dependencias:
-
-```bash
+# Instalar dependencias
 npm install
-```
 
-3. Iniciar el servidor de desarrollo:
-
-```bash
+# Iniciar servidor de desarrollo
 npm run dev
 ```
 
-## 🛠️ Scripts Disponibles
+## Características Principales
 
-- `npm run dev`: Inicia el servidor de desarrollo (puerto 5173)
-- `npm run build`: Genera la versión de producción
-- `npm run lint`: Ejecuta el linter para verificar la calidad del código
-- `npm run preview`: Previsualiza la versión de producción localmente
+- Tabla interactiva con campos editables y bloqueados
+- Soporte para datos numéricos y de selección
+- Cambio dinámico entre diferentes conjuntos de datos
+- Diseño responsivo y moderno
+- Validación de campos
+- Persistencia de datos
 
-## 🏗️ Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 src/
 ├── assets/
-│   └── images/          # Imágenes y recursos estáticos
+│   └── data/           # Archivos JSON con datos
 ├── components/
-│   ├── common/          # Componentes reutilizables
-│   └── Layout/          # Componentes de layout
-├── hooks/               # Custom hooks
-├── models/              # Interfaces y tipos
-│   ├── TableData.ts     # Modelo para datos de tabla
-│   ├── Option.ts        # Modelo para opciones
-│   ├── TableOptions.ts  # Modelo para opciones de tabla
-│   └── TableResponse.ts # Modelo para respuestas de API
-├── services/           # Servicios y llamadas a API
-└── assets/            # Recursos estáticos
+│   ├── common/         # Componentes reutilizables
+│   └── layout/         # Componentes de estructura
+├── hooks/              # Hooks personalizados
+├── models/             # Interfaces y tipos
+└── services/           # Servicios y lógica de negocio
 ```
 
-## 🎨 Características Principales
+## Desarrollo
 
-- Interfaz moderna y responsive
-- Tabla interactiva con filtros y búsqueda
-- Diseño modular y reutilizable
+### Arquitectura
+
+La aplicación sigue una arquitectura modular y escalable:
+
+1. **Componentes**:
+
+   - `InteractiveTable`: Componente principal que maneja la visualización y edición de datos
+   - `TableControls`: Controles para la tabla (búsqueda, filtros, etc.)
+   - Componentes reutilizables para inputs y selects
+
+2. **Hooks Personalizados**:
+
+   - `useTableState`: Manejo del estado local de la tabla
+   - `useFieldHandlers`: Lógica de manejo de eventos de campos
+   - `useTableData`: Gestión de datos y operaciones CRUD
+
+3. **Gestión de Estado**:
+   - Estado local para valores seleccionados y numéricos
+   - Manejo de cambios en tiempo real
+   - Limpieza de campos al cambiar entre conjuntos de datos
+
+### Funcionalidades Implementadas
+
+1. **Tabla Interactiva**:
+
+   - Campos editables y bloqueados
+   - Validación de tipos de datos
+   - Placeholders descriptivos
+   - Tamaño consistente de campos
+
+2. **Gestión de Datos**:
+
+   - Cambio entre diferentes conjuntos de datos
+   - Persistencia de selecciones
+   - Limpieza de campos al cambiar fuente de datos
+
+3. **Interfaz de Usuario**:
+   - Diseño minimalista y moderno
+   - Feedback visual en interacciones
+   - Mensajes de error descriptivos
+   - Campos deshabilitados con estilo distintivo
+
+### Mejoras Técnicas
+
+- Separación de responsabilidades
+- Código modular y reutilizable
 - Tipado fuerte con TypeScript
-- Arquitectura basada en modelos
+- Optimización de rendimiento
+- Manejo eficiente de estados
 
-## 📚 Dependencias Principales
+## Tecnologías Utilizadas
 
-```json
-{
-  "dependencies": {
-    "@ant-design/icons": "^6.0.0",
-    "antd": "^5.24.8",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^7.5.3"
-  }
-}
-```
-
-## 📝 Convenciones de Código
-
-- Usar TypeScript para todo el código
-- Seguir las reglas de ESLint configuradas
-- Usar componentes funcionales con hooks
-- Mantener los componentes pequeños y enfocados
-- Separar la lógica de negocio en hooks personalizados
-- Mantener los modelos en archivos separados
-- Seguir principios SOLID
-
-## 🔄 Estructura de Datos
-
-### Modelos Principales
-
-#### TableData
-
-```typescript
-interface TableData {
-  id: number;
-  type: string;
-  value: string | number;
-  status: string;
-  isEditable: boolean;
-  isNumeric: boolean;
-  isVisible: boolean;
-  editableColumns?: string[];
-}
-```
-
-#### TableOptions
-
-```typescript
-interface TableOptions {
-  types: Option[];
-}
-```
-
-## 👥 Autor
-
-- Javier Rojas
-
-## 🙏 Agradecimientos
-
-- [Ant Design](https://ant.design/) por los componentes UI
-- [Vite](https://vitejs.dev/) por la herramienta de construcción
-- [React](https://reactjs.org/) por la biblioteca de UI
+- React
+- TypeScript
+- Ant Design
+- CSS Modules
+- React Hooks
