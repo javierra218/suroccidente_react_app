@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table, Select, Input, Space } from 'antd';
-import type { TableData } from '../../../services/tableService';
+import type { TableData } from '../../../models/TableData';
 import { useTableData } from '../../../hooks/useTableData';
 import TableControls from './TableControls';
 import './InteractiveTable.css';

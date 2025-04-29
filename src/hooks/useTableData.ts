@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import type { TableData, TableOptions } from '../services/tableService';
+import type { TableData } from '../models/TableData';
+import type { TableOptions } from '../models/TableOptions';
 import { fetchTableData } from '../services/tableService';
 
 export const useTableData = () => {

@@ -1,10 +1,10 @@
 # Suroccidente App
 
-Aplicación web desarrollada con React, TypeScript y Ant Design para la gestión de datos.
+Aplicación web desarrollada con React, TypeScript y Ant Design para la gestión de datos de la E.S.E Suroccidente.
 
 ## 🚀 Tecnologías Utilizadas
 
-- **React 19**: Biblioteca de JavaScript para construir interfaces de usuario
+- **React 18**: Biblioteca de JavaScript para construir interfaces de usuario
 - **TypeScript**: Superset de JavaScript que añade tipado estático
 - **Vite**: Herramienta de construcción y desarrollo rápido
 - **Ant Design**: Biblioteca de componentes UI
@@ -42,12 +42,19 @@ npm run dev
 
 ```
 src/
+├── assets/
+│   └── images/          # Imágenes y recursos estáticos
 ├── components/
 │   ├── common/          # Componentes reutilizables
 │   └── Layout/          # Componentes de layout
-├── hooks/              # Custom hooks
+├── hooks/               # Custom hooks
+├── models/              # Interfaces y tipos
+│   ├── TableData.ts     # Modelo para datos de tabla
+│   ├── Option.ts        # Modelo para opciones
+│   ├── TableOptions.ts  # Modelo para opciones de tabla
+│   └── TableResponse.ts # Modelo para respuestas de API
 ├── services/           # Servicios y llamadas a API
-└── assets/             # Recursos estáticos
+└── assets/            # Recursos estáticos
 ```
 
 ## 🎨 Características Principales
@@ -56,6 +63,7 @@ src/
 - Tabla interactiva con filtros y búsqueda
 - Diseño modular y reutilizable
 - Tipado fuerte con TypeScript
+- Arquitectura basada en modelos
 
 ## 📚 Dependencias Principales
 
@@ -64,8 +72,9 @@ src/
   "dependencies": {
     "@ant-design/icons": "^6.0.0",
     "antd": "^5.24.8",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.5.3"
   }
 }
 ```
@@ -77,6 +86,35 @@ src/
 - Usar componentes funcionales con hooks
 - Mantener los componentes pequeños y enfocados
 - Separar la lógica de negocio en hooks personalizados
+- Mantener los modelos en archivos separados
+- Seguir principios SOLID
+
+## 🔄 Estructura de Datos
+
+### Modelos Principales
+
+#### TableData
+
+```typescript
+interface TableData {
+  id: number;
+  type: string;
+  value: string | number;
+  status: string;
+  isEditable: boolean;
+  isNumeric: boolean;
+  isVisible: boolean;
+  editableColumns?: string[];
+}
+```
+
+#### TableOptions
+
+```typescript
+interface TableOptions {
+  types: Option[];
+}
+```
 
 ## 👥 Autor
 
