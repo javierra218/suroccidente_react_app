@@ -50,7 +50,7 @@ const Topbar: React.FC = () => {
     <Header className="topbar">
       <div className="topbar-left">
         <img src={logo} alt="Logo Suroccidente" className="logo" />
-        <h1 className="topbar-title">Suroccidente App</h1>
+        <h1 className="topbar-title">E.S.E Suroccidente</h1>
       </div>
 
       <Space size="large" className="topbar-right">
