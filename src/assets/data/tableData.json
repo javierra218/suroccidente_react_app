@@ -2,42 +2,41 @@
     "data": [
         {
             "id": 1,
-            "tipo": "A",
-            "valor": "A",
-            "estado": "A",
+            "type": "A",
+            "value": "A",
+            "status": "A",
             "isEditable": true,
             "isNumeric": false,
             "isVisible": true,
             "editableColumns": [
-                "tipo",
-                "valor",
-                "estado"
+                "type",
+                "value",
+                "status"
             ]
         },
         {
             "id": 2,
-            "tipo": "A",
-            "valor": "B",
-            "estado": "A",
+            "type": "A",
+            "value": "B",
+            "status": "A",
             "isEditable": true,
             "isNumeric": false,
             "isVisible": false,
             "editableColumns": [
-                "tipo",
-                "estado"
+                "type",
+                "status"
             ]
         },
         {
             "id": 3,
-            "tipo": "100",
-            "valor": "200",
-            "estado": "300",
+            "type": "100",
+            "value": "200",
+            "status": "300",
             "isEditable": true,
             "isNumeric": true,
             "isVisible": false,
             "editableColumns": [
-                "valor",
-                "estado"
+                "value"
             ]
         }
     ],

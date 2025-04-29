@@ -2,9 +2,9 @@ import tableData from '../assets/data/tableData.json';
 
 export interface TableData {
   id: number;
-  tipo: string;
-  valor: string | number;
-  estado: string;
+  type: string;
+  value: string | number;
+  status: string;
   isEditable: boolean;
   isNumeric: boolean;
   isVisible: boolean;
