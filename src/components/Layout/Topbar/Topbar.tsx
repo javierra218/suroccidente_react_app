@@ -1,13 +1,7 @@
 import React from 'react';
 import { Layout, Button, Space, Avatar, Badge, Dropdown, Menu } from 'antd';
-import { useNavigate } from 'react-router-dom';
-import {
-  UserOutlined,
-  BellOutlined,
-  SettingOutlined,
-  LogoutOutlined,
-  DownOutlined
-} from '@ant-design/icons';
+import { useNavigate, Link } from 'react-router-dom';
+import { UserOutlined, BellOutlined, SettingOutlined, LogoutOutlined, DownOutlined } from '@ant-design/icons';
 import logo from '../../../assets/images/logo.svg';
 import './Topbar.css';
 
@@ -49,8 +43,10 @@ const Topbar: React.FC = () => {
   return (
     <Header className="topbar">
       <div className="topbar-left">
-        <img src={logo} alt="Logo Suroccidente" className="logo" />
-        <h1 className="topbar-title">E.S.E Suroccidente</h1>
+        <Link to="/tabla_de_datos" className="logo-link">
+          <img src={logo} alt="Logo Suroccidente" className="logo" />
+        </Link>
+        <h1 className="topbar-title">Suroccidente App</h1>
       </div>
 
       <Space size="large" className="topbar-right">
