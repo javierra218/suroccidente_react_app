@@ -2,9 +2,9 @@
     "data": [
         {
             "id": 1,
-            "type": "A",
-            "value": "A",
-            "status": "A",
+            "type": "Medicina General",
+            "value": "Turno Mañana",
+            "status": "Disponible",
             "isEditable": true,
             "isNumeric": false,
             "isVisible": true,
@@ -16,9 +16,9 @@
         },
         {
             "id": 2,
-            "type": "A",
-            "value": "B",
-            "status": "A",
+            "type": "Odontología",
+            "value": "Turno Tarde",
+            "status": "Ocupado",
             "isEditable": true,
             "isNumeric": false,
             "isVisible": false,
@@ -36,28 +36,27 @@
             "isNumeric": true,
             "isVisible": false,
             "editableColumns": [
-                "value",
-                "status"
+                "value"
             ]
         }
     ],
     "options": {
         "types": [
             {
-                "value": "A",
-                "label": "A"
+                "value": "Medicina General",
+                "label": "Medicina General"
             },
             {
-                "value": "B",
-                "label": "B"
+                "value": "Odontología",
+                "label": "Odontología"
             },
             {
-                "value": "C",
-                "label": "C"
+                "value": "Pediatría",
+                "label": "Pediatría"
             },
             {
-                "value": "D",
-                "label": "D"
+                "value": "Ginecología",
+                "label": "Ginecología"
             }
         ]
     }

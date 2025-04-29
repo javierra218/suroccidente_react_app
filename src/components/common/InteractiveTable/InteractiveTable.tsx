@@ -14,15 +14,17 @@ const InteractiveTable: React.FC = () => {
     loading,
     showMore,
     setShowMore,
+    useEpsData,
     handleTypeChange,
     handleValueChange,
     handleStatusChange,
-    handleSearch
+    handleSearch,
+    handleToggleEpsData
   } = useTableData();
 
   const columns = [
     {
-      title: 'Columna 1',
+      title: 'Tipo',
       dataIndex: 'type',
       key: 'type',
       render: (text: string, record: TableData) => {
@@ -60,7 +62,7 @@ const InteractiveTable: React.FC = () => {
       }
     },
     {
-      title: 'Columna 2',
+      title: 'Valor',
       dataIndex: 'value',
       key: 'value',
       render: (text: string | number, record: TableData) => {
@@ -98,7 +100,7 @@ const InteractiveTable: React.FC = () => {
       }
     },
     {
-      title: 'Columna 3',
+      title: 'Estado',
       dataIndex: 'status',
       key: 'status',
       render: (text: string, record: TableData) => {
@@ -137,14 +139,17 @@ const InteractiveTable: React.FC = () => {
     }
   ];
 
-  // Filtramos las filas según el estado de showMore
-  const visibleData = data.filter(item => item.isVisible || showMore);
-
   return (
     <div className="interactive-table">
       <Space direction="vertical" style={{ width: '100%' }}>
-        <TableControls showMore={showMore} onShowMoreChange={setShowMore} onSearch={handleSearch} />
-        <Table columns={columns} dataSource={visibleData} rowKey="id" loading={loading} pagination={false} bordered />
+        <TableControls
+          showMore={showMore}
+          useEpsData={useEpsData}
+          onShowMoreChange={setShowMore}
+          onEpsDataChange={handleToggleEpsData}
+          onSearch={handleSearch}
+        />
+        <Table columns={columns} dataSource={data} rowKey="id" loading={loading} pagination={false} bordered />
       </Space>
     </div>
   );

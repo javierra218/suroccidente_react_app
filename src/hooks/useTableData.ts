@@ -9,11 +9,12 @@ export const useTableData = () => {
   const [loading, setLoading] = useState(true);
   const [showMore, setShowMore] = useState(false);
   const [searchText, setSearchText] = useState('');
+  const [useEpsData, setUseEpsData] = useState(false);
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetchTableData();
+        const response = await fetchTableData(useEpsData);
         setData(response.data);
         setOptions(response.options);
       } catch (error) {
@@ -24,7 +25,7 @@ export const useTableData = () => {
     };
 
     loadData();
-  }, []);
+  }, [useEpsData]);
 
   const handleTypeChange = (value: string, record: TableData) => {
     const newData = data.map(item => {
@@ -60,6 +61,11 @@ export const useTableData = () => {
     setSearchText(value);
   };
 
+  const handleToggleEpsData = (checked: boolean) => {
+    setUseEpsData(checked);
+    setLoading(true);
+  };
+
   const filteredData = data.filter(item => {
     const matchesSearch =
       searchText === '' ||
@@ -74,9 +80,11 @@ export const useTableData = () => {
     showMore,
     setShowMore,
     searchText,
+    useEpsData,
     handleTypeChange,
     handleValueChange,
     handleStatusChange,
-    handleSearch
+    handleSearch,
+    handleToggleEpsData
   };
 };
