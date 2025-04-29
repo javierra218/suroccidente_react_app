@@ -1,54 +1,89 @@
-# React + TypeScript + Vite
+# Suroccidente App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web desarrollada con React, TypeScript y Ant Design para la gestión de datos.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19**: Biblioteca de JavaScript para construir interfaces de usuario
+- **TypeScript**: Superset de JavaScript que añade tipado estático
+- **Vite**: Herramienta de construcción y desarrollo rápido
+- **Ant Design**: Biblioteca de componentes UI
+- **ESLint**: Linter para mantener la calidad del código
 
-## Expanding the ESLint configuration
+## 📦 Instalación
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Clonar el repositorio:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone [url-del-repositorio]
+cd suroccidente_app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Instalar dependencias:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
+
+3. Iniciar el servidor de desarrollo:
+
+```bash
+npm run dev
+```
+
+## 🛠️ Scripts Disponibles
+
+- `npm run dev`: Inicia el servidor de desarrollo (puerto 5173)
+- `npm run build`: Genera la versión de producción
+- `npm run lint`: Ejecuta el linter para verificar la calidad del código
+- `npm run preview`: Previsualiza la versión de producción localmente
+
+## 🏗️ Estructura del Proyecto
+
+```
+src/
+├── components/
+│   ├── common/          # Componentes reutilizables
+│   └── Layout/          # Componentes de layout
+├── hooks/              # Custom hooks
+├── services/           # Servicios y llamadas a API
+└── assets/             # Recursos estáticos
+```
+
+## 🎨 Características Principales
+
+- Interfaz moderna y responsive
+- Tabla interactiva con filtros y búsqueda
+- Diseño modular y reutilizable
+- Tipado fuerte con TypeScript
+
+## 📚 Dependencias Principales
+
+```json
+{
+  "dependencies": {
+    "@ant-design/icons": "^6.0.0",
+    "antd": "^5.24.8",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
+```
+
+## 📝 Convenciones de Código
+
+- Usar TypeScript para todo el código
+- Seguir las reglas de ESLint configuradas
+- Usar componentes funcionales con hooks
+- Mantener los componentes pequeños y enfocados
+- Separar la lógica de negocio en hooks personalizados
+
+## 👥 Autor
+
+- Javier Rojas
+
+## 🙏 Agradecimientos
+
+- [Ant Design](https://ant.design/) por los componentes UI
+- [Vite](https://vitejs.dev/) por la herramienta de construcción
+- [React](https://reactjs.org/) por la biblioteca de UI
