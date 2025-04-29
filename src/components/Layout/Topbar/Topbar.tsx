@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layout, Button, Space, Avatar, Badge, Dropdown, Menu } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import {
   UserOutlined,
   BellOutlined,
@@ -12,8 +13,25 @@ import './Topbar.css';
 const { Header } = Layout;
 
 const Topbar: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleMenuClick = (key: string) => {
+    switch (key) {
+      case 'profile':
+        navigate('/perfil');
+        break;
+      case 'settings':
+        navigate('/configuracion');
+        break;
+      case 'logout':
+        // Aquí iría la lógica de cierre de sesión
+        console.log('Cerrar sesión');
+        break;
+    }
+  };
+
   const userMenu = (
-    <Menu>
+    <Menu onClick={({ key }) => handleMenuClick(key)}>
       <Menu.Item key="profile" icon={<UserOutlined />}>
         Mi Perfil
       </Menu.Item>
