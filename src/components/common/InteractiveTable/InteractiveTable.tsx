@@ -23,11 +23,11 @@ const InteractiveTable: React.FC = () => {
   const columns = [
     {
       title: 'Columna 1',
-      dataIndex: 'type',
-      key: 'type',
+      dataIndex: 'tipo',
+      key: 'tipo',
       render: (text: string, record: TableData) => {
         if (record.isNumeric) {
-          return record.editableColumns?.includes('type') ? (
+          return record.editableColumns?.includes('tipo') ? (
             <Input
               type="number"
               value={text}
@@ -39,7 +39,7 @@ const InteractiveTable: React.FC = () => {
           );
         }
 
-        return record.editableColumns?.includes('type') ? (
+        return record.editableColumns?.includes('tipo') ? (
           <Select
             value={text || undefined}
             onChange={value => handleTypeChange(value, record)}
@@ -61,11 +61,11 @@ const InteractiveTable: React.FC = () => {
     },
     {
       title: 'Columna 2',
-      dataIndex: 'value',
-      key: 'value',
+      dataIndex: 'valor',
+      key: 'valor',
       render: (text: string | number, record: TableData) => {
         if (record.isNumeric) {
-          return record.editableColumns?.includes('value') ? (
+          return record.editableColumns?.includes('valor') ? (
             <Input
               type="number"
               value={text}
@@ -77,7 +77,7 @@ const InteractiveTable: React.FC = () => {
           );
         }
 
-        return record.editableColumns?.includes('value') ? (
+        return record.editableColumns?.includes('valor') ? (
           <Select
             value={text || undefined}
             onChange={value => handleValueChange(Number(value), record)}
@@ -99,11 +99,11 @@ const InteractiveTable: React.FC = () => {
     },
     {
       title: 'Columna 3',
-      dataIndex: 'status',
-      key: 'status',
+      dataIndex: 'estado',
+      key: 'estado',
       render: (text: string, record: TableData) => {
         if (record.isNumeric) {
-          return record.editableColumns?.includes('status') ? (
+          return record.editableColumns?.includes('estado') ? (
             <Input
               type="number"
               value={text}
@@ -115,7 +115,7 @@ const InteractiveTable: React.FC = () => {
           );
         }
 
-        return record.editableColumns?.includes('status') ? (
+        return record.editableColumns?.includes('estado') ? (
           <Select
             value={text || undefined}
             onChange={value => handleStatusChange(value, record)}
