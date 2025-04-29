@@ -2,9 +2,8 @@ import tableData from '../assets/data/tableData.json';
 
 export interface TableData {
   id: number;
-  name: string;
   type: string;
-  value: number;
+  value: string | number;
   status: string;
   isEditable: boolean;
   isNumeric: boolean;
@@ -19,7 +18,6 @@ export interface Option {
 
 export interface TableOptions {
   types: Option[];
-  statuses: Option[];
 }
 
 export interface TableResponse {

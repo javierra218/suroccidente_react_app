@@ -1,15 +1,10 @@
 import { useState, useEffect } from 'react';
-import type { TableData } from '../services/tableService';
+import type { TableData, TableOptions } from '../services/tableService';
 import { fetchTableData } from '../services/tableService';
-
-interface Option {
-  value: string;
-  label: string;
-}
 
 export const useTableData = () => {
   const [data, setData] = useState<TableData[]>([]);
-  const [options, setOptions] = useState<{ types: Option[]; statuses: Option[] }>({ types: [], statuses: [] });
+  const [options, setOptions] = useState<TableOptions>({ types: [] });
   const [loading, setLoading] = useState(true);
   const [showMore, setShowMore] = useState(false);
   const [searchText, setSearchText] = useState('');
