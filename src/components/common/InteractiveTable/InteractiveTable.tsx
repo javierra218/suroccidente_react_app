@@ -79,8 +79,8 @@ const InteractiveTable: React.FC = () => {
 
         return record.editableColumns?.includes('value') ? (
           <Select
-            value={text || undefined}
-            onChange={value => handleValueChange(Number(value), record)}
+            value={text?.toString() || undefined}
+            onChange={value => handleValueChange(value, record)}
             style={{ width: '100%' }}
             placeholder="Selecciona un valor"
           >
@@ -91,8 +91,8 @@ const InteractiveTable: React.FC = () => {
             ))}
           </Select>
         ) : (
-          <Select value={text || undefined} disabled style={{ width: '100%' }}>
-            <SelectOption value={text}>{text}</SelectOption>
+          <Select value={text?.toString() || undefined} disabled style={{ width: '100%' }}>
+            <SelectOption value={text?.toString()}>{text?.toString()}</SelectOption>
           </Select>
         );
       }

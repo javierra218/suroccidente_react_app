@@ -35,7 +35,7 @@ export const useTableData = () => {
     setData(newData);
   };
 
-  const handleValueChange = (value: number, record: TableData) => {
+  const handleValueChange = (value: string | number, record: TableData) => {
     const newData = data.map(item => {
       if (item.id === record.id) {
         return { ...item, value: value };
