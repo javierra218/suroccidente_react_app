@@ -1,5 +1,4 @@
-import React from 'react';
-import MainLayout from './components/layout/MainLayout/MainLayout';
+import MainLayout from './components/Layout/MainLayout/MainLayout';
 import InteractiveTable from './components/common/InteractiveTable/InteractiveTable';
 import { Typography, Space } from 'antd';
 import { TableOutlined } from '@ant-design/icons';

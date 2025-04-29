@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Checkbox, Space } from 'antd';
+import { Input, Checkbox } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
 interface TableControlsProps {
