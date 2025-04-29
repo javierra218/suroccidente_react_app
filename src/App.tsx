@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route, Navigate } from 'react-router-dom';
+import MainLayout from './components/Layout/MainLayout/MainLayout';
+import InteractiveTable from './components/common/InteractiveTable/InteractiveTable';
+import UnderConstruction from './components/common/UnderConstruction/UnderConstruction';
+import { Typography, Space } from 'antd';
+import { TableOutlined } from '@ant-design/icons';
+
+const { Title } = Typography;
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<Navigate to="/tabla_de_datos" replace />} />
+      <Route
+        path="/tabla_de_datos"
+        element={
+          <MainLayout>
+            <Space direction="vertical" size="large" style={{ width: '100%' }}>
+              <Space align="center">
+                <TableOutlined style={{ fontSize: '24px', color: '#488704' }} />
+                <Title level={2} style={{ margin: 0, color: '#488704' }}>
+                  Gestión de Datos
+                </Title>
+              </Space>
+              <InteractiveTable />
+            </Space>
+          </MainLayout>
+        }
+      />
+      <Route
+        path="/perfil"
+        element={
+          <MainLayout>
+            <UnderConstruction />
+          </MainLayout>
+        }
+      />
+      <Route
+        path="/configuracion"
+        element={
+          <MainLayout>
+            <UnderConstruction />
+          </MainLayout>
+        }
+      />
+      <Route
+        path="*"
+        element={
+          <MainLayout>
+            <UnderConstruction />
+          </MainLayout>
+        }
+      />
+    </Routes>
+  );
 }
 
-export default App
+export default App;

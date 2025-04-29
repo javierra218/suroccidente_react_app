@@ -1,0 +1,64 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "type": "A",
+            "value": "A",
+            "status": "A",
+            "isEditable": true,
+            "isNumeric": false,
+            "isVisible": true,
+            "editableColumns": [
+                "type",
+                "value",
+                "status"
+            ]
+        },
+        {
+            "id": 2,
+            "type": "A",
+            "value": "B",
+            "status": "A",
+            "isEditable": true,
+            "isNumeric": false,
+            "isVisible": false,
+            "editableColumns": [
+                "type",
+                "status"
+            ]
+        },
+        {
+            "id": 3,
+            "type": "100",
+            "value": "200",
+            "status": "300",
+            "isEditable": true,
+            "isNumeric": true,
+            "isVisible": false,
+            "editableColumns": [
+                "value",
+                "status"
+            ]
+        }
+    ],
+    "options": {
+        "types": [
+            {
+                "value": "A",
+                "label": "A"
+            },
+            {
+                "value": "B",
+                "label": "B"
+            },
+            {
+                "value": "C",
+                "label": "C"
+            },
+            {
+                "value": "D",
+                "label": "D"
+            }
+        ]
+    }
+}

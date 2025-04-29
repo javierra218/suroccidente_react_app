@@ -1,54 +1,98 @@
-# React + TypeScript + Vite
+# Aplicación de Gestión de Datos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+Aplicación web desarrollada con React y TypeScript para la gestión y visualización de datos tabulares.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalación
 
-## Expanding the ESLint configuration
+```bash
+# Instalar dependencias
+npm install
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Iniciar servidor de desarrollo
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Características Principales
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Tabla interactiva con campos editables y bloqueados
+- Soporte para datos numéricos y de selección
+- Cambio dinámico entre diferentes conjuntos de datos
+- Diseño responsivo y moderno
+- Validación de campos
+- Persistencia de datos
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## Estructura del Proyecto
+
 ```
+src/
+├── assets/
+│   └── data/           # Archivos JSON con datos
+├── components/
+│   ├── common/         # Componentes reutilizables
+│   └── layout/         # Componentes de estructura
+├── hooks/              # Hooks personalizados
+├── models/             # Interfaces y tipos
+└── services/           # Servicios y lógica de negocio
+```
+
+## Desarrollo
+
+### Arquitectura
+
+La aplicación sigue una arquitectura modular y escalable:
+
+1. **Componentes**:
+
+   - `InteractiveTable`: Componente principal que maneja la visualización y edición de datos
+   - `TableControls`: Controles para la tabla (búsqueda, filtros, etc.)
+   - Componentes reutilizables para inputs y selects
+
+2. **Hooks Personalizados**:
+
+   - `useTableState`: Manejo del estado local de la tabla
+   - `useFieldHandlers`: Lógica de manejo de eventos de campos
+   - `useTableData`: Gestión de datos y operaciones CRUD
+
+3. **Gestión de Estado**:
+   - Estado local para valores seleccionados y numéricos
+   - Manejo de cambios en tiempo real
+   - Limpieza de campos al cambiar entre conjuntos de datos
+
+### Funcionalidades Implementadas
+
+1. **Tabla Interactiva**:
+
+   - Campos editables y bloqueados
+   - Validación de tipos de datos
+   - Placeholders descriptivos
+   - Tamaño consistente de campos
+
+2. **Gestión de Datos**:
+
+   - Cambio entre diferentes conjuntos de datos
+   - Persistencia de selecciones
+   - Limpieza de campos al cambiar fuente de datos
+
+3. **Interfaz de Usuario**:
+   - Diseño minimalista y moderno
+   - Feedback visual en interacciones
+   - Mensajes de error descriptivos
+   - Campos deshabilitados con estilo distintivo
+
+### Mejoras Técnicas
+
+- Separación de responsabilidades
+- Código modular y reutilizable
+- Tipado fuerte con TypeScript
+- Optimización de rendimiento
+- Manejo eficiente de estados
+
+## Tecnologías Utilizadas
+
+- React
+- TypeScript
+- Ant Design
+- CSS Modules
+- React Hooks
